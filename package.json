@@ -1,0 +1,40 @@
+{
+  "name": "@claudiucelfilip/wavelet-faucet",
+  "version": "1.0.10",
+  "description": "A React component to tap into the Wavelet Faucet",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claudiucelfilip/wavelet-faucet"
+  },      
+  "main": "build/index.js",
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack",
+    "prepublish": "npm run build"
+  },
+  "private": false,
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.6.1",
+    "react-dom": "^16.6.3",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-styled-components": "^1.10.6",
+    "file-loader": "^4.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.37.0",
+    "webpack-cli": "^3.3.6"
+  }
+}
