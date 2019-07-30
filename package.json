@@ -1,6 +1,6 @@
 {
   "name": "wavelet-faucet",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A React component to tap into the Wavelet Faucet",
   "repository": {
     "type": "git",
@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "@rebass/grid": "^6.0.0",
-    "rollup-plugin-svg": "^2.0.0"
+    "rollup-plugin-svg": "^2.0.0",
+    "styled-normalize": "^8.0.6"
   }
 }
