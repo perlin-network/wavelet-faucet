@@ -5,11 +5,12 @@ A React component to tap into the Wavelet's testnet faucet, to add PERLs to a wa
 ## Usage
 
 ```js
-import FaucetButton from 'wavelet-faucet';
+import { FaucetButton, themes: { mono } } from 'wavelet-faucet';
 ...
 
 <FaucetButton
     url="alternative-faucet-url" // optional will use 'https://faucet.perlin.net' by default
+    modalHeader // optional, adds a header to the modal
     theme={altTheme} // optional, see src/theme.js for values
 />
 ```
