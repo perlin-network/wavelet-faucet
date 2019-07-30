@@ -5,17 +5,29 @@ import Faucet from "./Faucet.jsx";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
 
-const FaucetButton = ({ modalHeader, url, theme: defaultTheme }) => {
+const FaucetButton = ({
+  style,
+  className,
+  modalHeader,
+  url,
+  theme: defaultTheme
+}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-      <ThemeProvider theme={defaultTheme || theme}>
+    <ThemeProvider theme={defaultTheme || theme}>
       <div>
-        <Modal header={modalHeader ? <h2>PERL Faucet</h2>: ''}open={open} onClose={handleClose}>
-          <Faucet header={!modalHeader}url={url} />
+        <Modal
+          header={modalHeader ? <h2>PERL Faucet</h2> : ""}
+          open={open}
+          onClose={handleClose}
+        >
+          <Faucet header={!modalHeader} url={url} />
         </Modal>
-        <Button onClick={handleOpen}>Wavelet Faucet</Button>
+        <Button style={style} className={className} onClick={handleOpen}>
+          Wavelet Faucet
+        </Button>
       </div>
     </ThemeProvider>
   );
