@@ -1,17 +1,24 @@
 {
-  "name": "@claudiucelfilip/wavelet-faucet",
+  "name": "wavelet-faucet",
   "version": "1.0.10",
   "description": "A React component to tap into the Wavelet Faucet",
   "repository": {
     "type": "git",
     "url": "https://github.com/claudiucelfilip/wavelet-faucet"
-  },      
-  "main": "build/index.js",
+  },
+  "main": "dist/wavelet-faucet.js",
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
+  "module": "dist/wavelet-faucet.mjs",
+  "browser": "dist/wavelet-faucet.umd.js",
+  "files": [
+    "dist"
+  ],
   "private": false,
   "author": "",
   "license": "ISC",
@@ -23,18 +30,34 @@
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
+    "styled-components": "^4.3.2",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/react": "^5.1.9",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
     "babel-plugin-styled-components": "^1.10.6",
+    "babel-polyfill": "^6.26.0",
     "file-loader": "^4.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "rollup": "^1.17.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.37.0",
     "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "@rebass/grid": "^6.0.0",
+    "rollup-plugin-svg": "^2.0.0"
   }
 }
