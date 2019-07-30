@@ -7,11 +7,11 @@ import styled from "styled-components";
 import LoadingSpinner, { Spinner } from "./LoadingSpinner.jsx";
 
 const Wrapper = styled.div`
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily};
   text-align: center;
   font-weight: normal;
   color: white;
-  background-color: #171d39;
+  background: ${props => props.theme.modalBackground};
   border-radius: 5px;
   padding: 10px;
   h1 {
@@ -32,21 +32,24 @@ const FormWrapper = styled.form`
     width: calc(100% - 40px);
     display: flex;
      ${StyledInput} {
-        border-radius: 5px 0px 0px 5px;
+        border-radius: ${props => props.theme.borderRadius}
+0px
+0px
+        ${props => props.theme.borderRadius};;
         flex-grow: 1;
-        height: 58px;
+        height: 40px;
         padding: 0px;
+        padding-left: 10px;
         margin: 0;
         width: auto;
     }
     ${Button} {
-        height: 58px;
+        height: 42px;
         font-size: 16px;
         font-weight: 600;
-        font-family: sans-serif;
-        background-color: #fff;
+        background-color: #A0a0a0;
         color: #151b35;
-        border-radius: 5px;
+        border-radius: ${props => props.theme.borderRadius};
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         width: auto;
@@ -63,9 +66,14 @@ const CenterContent = styled(Flex)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70px;
-  margin-bottom: 40px;
+//  height: 70px;
+  margin-bottom: 15px;
 `;
+
+const FaucetText = styled.div`
+font-size: 14px;
+`;
+
 const FaucetLink = styled(ButtonOutlined)`
   text-decoration: none;
   display: inline-block;
@@ -83,7 +91,7 @@ const FaucetLink = styled(ButtonOutlined)`
   }
 `;
 
-const Faucet = ({ style, className, url }) => {
+const Faucet = ({ style, className, url, header }) => {
   const [count, setCount] = useState();
   const [loading, setLoading] = useState();
   const [address, setAddress] = useState("");
@@ -143,7 +151,7 @@ const Faucet = ({ style, className, url }) => {
 
   return (
     <Wrapper style={style} className={className}>
-      <h1>Quick PERL Faucet</h1>
+      { header ? <h1>Quick PERL Faucet</h1> : ''}
       <CenterContent>
         {loading ? (
           <LoadingSpinner />
@@ -151,7 +159,7 @@ const Faucet = ({ style, className, url }) => {
           <FormWrapper onSubmit={fetchPERLs}>
             <StyledInput
               value={address}
-              placeholder="Enter a wallet"
+              placeholder="Enter a wallet address"
               onChange={addressChangeHandle}
             />
             <Button type="submit" disabled={!address}>
@@ -162,12 +170,12 @@ const Faucet = ({ style, className, url }) => {
           count && <h3>You need wait another {count} seconds.</h3>
         )}
       </CenterContent>
-      <div>
-        You can get more PERLs on the chat
+      <FaucetText>
+        Need more <b>PERLs</b>? Join our
         <a href="https://discord.gg/dMYfDPM" target="_blank">
-          <FaucetLink>Faucet</FaucetLink>
+          <FaucetLink>Discord</FaucetLink>
         </a>
-      </div>
+      </FaucetText>
     </Wrapper>
   );
 };

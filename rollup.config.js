@@ -21,7 +21,7 @@ export default [
     plugins: [
       resolve(),
       json(),
-      svg(),
+        svg({ base64: true}),
       babel({
         exclude: 'node_modules/**'
       }),
@@ -34,7 +34,7 @@ export default [
       plugins: [
           resolve(),
           json(),
-          svg(),
+          svg({ base64: true}),
           babel({
               exclude: 'node_modules/**'
           }),

@@ -25,17 +25,20 @@ Card.defaultProps = {
 export const Button = styled.button`
     width: ${props => props.width};
     height: 40px;
+
+    border-radius: ${props => props.theme.borderRadius};
     border: 0;
     outline: 0;
-    border-radius: 3px;
     text-align: center;
     vertical-align: middle;
     line-height: 40px;
-    font-family: HGGrotesk, sans-serif;
+
+    font-family: ${props => props.theme.fontFamily}, HGGrotesk, sans-serif;
     font-size: ${props => props.fontSize};
     font-weight: normal;
     color: #fff;
-    background-color: #23228e;
+
+    background-color: ${props => props.theme.buttonBackground};
     cursor: pointer;
     transition: all 0.2s ease;
 
@@ -93,7 +96,7 @@ export const Input = styled.input`
     height: 35px;
     background-color: #fff;
     padding: 10px 15px;
-    font-family: HGGrotesk, sans-serif;
+    font-family: ${props => props.theme.fontFamily}, HGGrotesk, sans-serif;
     font-weight: normal;
     font-size: ${props => props.fontSize};
     width: ${props => props.width};
@@ -109,6 +112,7 @@ export const Input = styled.input`
         background-color: #ddd;
     }
 `;
+
 Input.defaultProps = {
     width: "auto",
     fontSize: "14px"
@@ -130,15 +134,18 @@ export const WhiteButton = styled.button`
 `;
 
 export const StyledInput = styled(Input)`
-    font-family: HGGrotesk, sans-serif;
+    font-family: ${props => props.theme.fontFamily}, HGGrotesk, sans-serif;
     font-size: 16px;
     font-weight: 400;
-    background-color: #121834;
-    border-radius: 5px;
+
+    background: ${props => props.theme.backdropColor};
+    background-color: ${props => props.theme.inputBackground};
+
+    border-radius: ${props => props.theme.borderRadius};
     border: 1px solid #2e345100;
-    color: white;
+    color: ${props => props.theme.inputColor};
     width: 100%;
-    padding: 15px;
+    padding: ${props => props.theme.inputPadding || "15px"};
     min-width: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
