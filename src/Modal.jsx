@@ -32,19 +32,31 @@ const ModalHeader = styled.div`
   background: ${props => props.theme.headerBackground};
   color: ${props => props.theme.headerColor};
   font-family: ${props => props.theme.fontFamily};
-  margin: ${props => props.hasHeader ? '-' + props.theme.modalPadding : '0px'};
+  margin: ${props =>
+    props.hasHeader ? "-" + props.theme.modalPadding : "0px"};
   padding-left: 20px;
   margin-bottom: 30px;
-  justify-content: ${props => props.hasHeader ? 'space-between' : 'flex-end'};
-  align-items: ${props => props.hasHeader ? 'center' : ''};
+  justify-content: ${props => (props.hasHeader ? "space-between" : "flex-end")};
+  align-items: ${props => (props.hasHeader ? "center" : "")};
 `;
 
 const ModalBody = styled.div``;
 
-const ModalCloseButton = styled.img.attrs({ src: CloseIcon })`
-  height: 20px;
-  width: 20px;
-  ${props => props.theme.headerColor === 'black' ? 'filter: invert(1);' : ''}
+// const ModalCloseButton = styled.img.attrs({ src: CloseIcon })`
+//   height: 20px;
+//   width: 20px;
+//   ${props => props.theme.headerColor === 'black' ? 'filter: invert(1);' : ''}
+//   padding-right: 20px;
+//   cursor: pointer;
+// `;
+
+const ModalCloseButton = styled(({ onClick, className }) => (
+  <div className={className} onClick={onClick}>
+    X
+  </div>
+))`
+  font-family: mono;
+  font-size: 20pt;
   padding-right: 20px;
   cursor: pointer;
 `;
