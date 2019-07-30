@@ -13,6 +13,7 @@ import { FaucetButton, themes: { mono } } from 'wavelet-faucet';
     modalHeader // optional, adds a header to the modal
     theme={altTheme} // optional, see src/theme.js for values
     style={{}} // styles the button 
+    address="optional address prefill"
     className={{}} // className for the button 
 />
 ```

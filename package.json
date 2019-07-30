@@ -1,6 +1,6 @@
 {
   "name": "wavelet-faucet",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "A React component to tap into the Wavelet Faucet",
   "repository": {
     "type": "git",

@@ -91,10 +91,10 @@ const FaucetLink = styled(ButtonOutlined)`
   }
 `;
 
-const Faucet = ({ style, className, url, header }) => {
+const Faucet = ({ style, className, url, header, address: initial }) => {
   const [count, setCount] = useState();
   const [loading, setLoading] = useState();
-  const [address, setAddress] = useState("");
+  const [address, setAddress] = useState(initial || "");
   const [lastFaucetFetch, setLastFaucetFetch] = useState(0);
 
   useEffect(() => {
@@ -150,6 +150,7 @@ const Faucet = ({ style, className, url, header }) => {
   }, []);
 
   return (
+      <>
     <Wrapper style={style} className={className}>
       { header ? <h1>Quick PERL Faucet</h1> : ''}
       <CenterContent>
@@ -177,6 +178,7 @@ const Faucet = ({ style, className, url, header }) => {
         </a>
       </FaucetText>
     </Wrapper>
+      </>
   );
 };
 

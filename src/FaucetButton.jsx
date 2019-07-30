@@ -9,6 +9,7 @@ const FaucetButton = ({
   style,
   className,
   modalHeader,
+  address,
   url,
   theme: defaultTheme
 }) => {
@@ -23,7 +24,7 @@ const FaucetButton = ({
           open={open}
           onClose={handleClose}
         >
-          <Faucet header={!modalHeader} url={url} />
+          <Faucet address={address} header={!modalHeader} url={url} />
         </Modal>
         <Button style={style} className={className} onClick={handleOpen}>
           Wavelet Faucet
