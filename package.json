@@ -1,6 +1,6 @@
 {
   "name": "wavelet-faucet",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "A React component to tap into the Wavelet Faucet",
   "repository": {
     "type": "git",
@@ -15,11 +15,12 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "module": "dist/wavelet-faucet.mjs",
-  "browserU": "dist/wavelet-faucet.umd.js",
+  "moduleR": "dist/wavelet-faucet.mjs",
+  "browserR": "dist/wavelet-faucet.umd.js",
   "browser": "build/index.js",
   "files": [
-    "dist"
+    "dist",
+    "build"
   ],
   "private": false,
   "author": "",
