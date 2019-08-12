@@ -153,17 +153,18 @@ const Faucet = ({ style, className, url, header, address: initial }) => {
       <>
     <Wrapper style={style} className={className}>
       { header ? <h1>Quick PERL Faucet</h1> : ''}
-      <CenterContent>
+      <CenterContent className="faucet-content">
         {loading ? (
           <LoadingSpinner />
         ) : count === 0 ? (
-          <FormWrapper onSubmit={fetchPERLs}>
+          <FormWrapper className="faucet-form" onSubmit={fetchPERLs}>
             <StyledInput
+              className="faucet-input"
               value={address}
               placeholder="Enter a wallet address"
               onChange={addressChangeHandle}
             />
-            <Button type="submit" disabled={!address}>
+            <Button className="faucet-submit" type="submit" disabled={!address}>
               Get PERLs
             </Button>
           </FormWrapper>
@@ -171,10 +172,10 @@ const Faucet = ({ style, className, url, header, address: initial }) => {
           count && <h3>You need wait another {count} seconds.</h3>
         )}
       </CenterContent>
-      <FaucetText>
+      <FaucetText className="faucet-text">
         Need more <b>PERLs</b>? Join our
         <a href="https://discord.gg/dMYfDPM" target="_blank">
-          <FaucetLink>Discord</FaucetLink>
+          <FaucetLink className="faucet-discord">Discord</FaucetLink>
         </a>
       </FaucetText>
     </Wrapper>
