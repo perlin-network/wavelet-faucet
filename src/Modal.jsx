@@ -61,7 +61,7 @@ const ModalCloseButton = styled(({ onClick, className }) => (
   cursor: pointer;
 `;
 
-const Modal = ({ onClose, header, open, children, theme }) => {
+const Modal = ({ onClose, header, open, children, theme, classPrefix }) => {
   const preventEventBubbling = useCallback(e => {
     e.stopPropagation();
   }, []);
@@ -69,23 +69,23 @@ const Modal = ({ onClose, header, open, children, theme }) => {
   return (
     <React.Fragment>
       {open && (
-        <ModalBackdrop className="modal-backdrop" onClick={onClose}>
+        <ModalBackdrop className={`${classPrefix}-modal-backdrop`} onClick={onClose}>
           <ModalWrapper
-            className="modal-wrapper"
+            className={`${classPrefix}-modal-wrapper`}
             onClick={preventEventBubbling}
           >
             <ModalHeader
-              className="modal-header"
+              className={`${classPrefix}-modal-header`}
               justifyContent="space-between"
               hasHeader={header && true}
             >
               {header}
               <ModalCloseButton
-                className="modal-close-button"
+                className={`${classPrefix}-modal-close-button`}
                 onClick={onClose}
               />
             </ModalHeader>
-            <ModalBody className="modal-body">{children}</ModalBody>
+            <ModalBody className={`${classPrefix}-modal-body`}>{children}</ModalBody>
           </ModalWrapper>
         </ModalBackdrop>
       )}

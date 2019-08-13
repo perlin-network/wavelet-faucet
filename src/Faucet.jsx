@@ -91,7 +91,7 @@ const FaucetLink = styled(ButtonOutlined)`
   }
 `;
 
-const Faucet = ({ style, className, url, header, address: initial }) => {
+const Faucet = ({ style, className, url, header, address: initial, classPrefix }) => {
   const [count, setCount] = useState();
   const [loading, setLoading] = useState();
   const [address, setAddress] = useState(initial || "");
@@ -150,21 +150,20 @@ const Faucet = ({ style, className, url, header, address: initial }) => {
   }, []);
 
   return (
-      <>
     <Wrapper style={style} className={className}>
       { header ? <h1>Quick PERL Faucet</h1> : ''}
-      <CenterContent className="faucet-content">
+      <CenterContent className={`${classPrefix}-content`}>
         {loading ? (
           <LoadingSpinner />
         ) : count === 0 ? (
-          <FormWrapper className="faucet-form" onSubmit={fetchPERLs}>
+          <FormWrapper className={`${classPrefix}-form`} onSubmit={fetchPERLs}>
             <StyledInput
-              className="faucet-input"
+              className={`${classPrefix}-input`}
               value={address}
               placeholder="Enter a wallet address"
               onChange={addressChangeHandle}
             />
-            <Button className="faucet-submit" type="submit" disabled={!address}>
+            <Button className={`${classPrefix}-submit`} type="submit" disabled={!address}>
               Get PERLs
             </Button>
           </FormWrapper>
@@ -172,14 +171,13 @@ const Faucet = ({ style, className, url, header, address: initial }) => {
           count && <h3>You need wait another {count} seconds.</h3>
         )}
       </CenterContent>
-      <FaucetText className="faucet-text">
+      <FaucetText className={`${classPrefix}-text`}>
         Need more <b>PERLs</b>? Join our
         <a href="https://discord.gg/dMYfDPM" target="_blank">
-          <FaucetLink className="faucet-discord">Discord</FaucetLink>
+          <FaucetLink className={`${classPrefix}-discord`}>Discord</FaucetLink>
         </a>
       </FaucetText>
     </Wrapper>
-      </>
   );
 };
 
