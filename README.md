@@ -14,6 +14,7 @@ import { FaucetButton, themes: { mono } } from 'wavelet-faucet';
     theme={altTheme} // optional, see src/theme.js for values
     style={{}} // styles the button 
     address="optional address prefill"
+    classPrefix=""  // optional, prefix for all CSS classes inside the faucet. Will use 'wavelet-faucet' by default
     className={{}} // className for the button 
 />
 ```
