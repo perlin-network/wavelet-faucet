@@ -123,8 +123,9 @@ const Faucet = ({ style, className, url, header, address: initial, classPrefix }
       setLoading(true);
       try {
         const response = await getPERLs(address);
+        const amount = (typeof response.amount !== "undefined") ? ` ${response.amount} ` : " ";
         if (response.result === "ok") {
-          alert("Successfully sent 1000 PERLs.");
+          alert(`Successfully sent${amount}PERLs.`);
         } else {
           throw new Error(response.result);
         }
