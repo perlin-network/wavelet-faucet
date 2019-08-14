@@ -11,7 +11,9 @@ const FaucetButton = ({
   modalHeader,
   address,
   url,
-  theme: defaultTheme
+  classPrefix = 'wavelet-faucet',
+  theme: defaultTheme,
+  children
 }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -23,11 +25,12 @@ const FaucetButton = ({
           header={modalHeader ? <h2>PERL Faucet</h2> : ""}
           open={open}
           onClose={handleClose}
+          classPrefix={classPrefix}
         >
-          <Faucet address={address} header={!modalHeader} url={url} />
+          <Faucet address={address} header={!modalHeader} url={url} classPrefix={classPrefix}/>
         </Modal>
         <Button style={style} className={className} onClick={handleOpen}>
-          Wavelet Faucet
+          {children || 'Wavelet Faucet'}
         </Button>
       </div>
     </ThemeProvider>
